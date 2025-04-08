@@ -12,7 +12,6 @@ i18n
                         about: "About Me",
                         experience: "Experience",
                         practice: "Practices",
-                        skills: "Skills",
                         contact: "Contact"
                     },
                     about: {
@@ -87,7 +86,6 @@ i18n
                         about: "Sobre Mí",
                         experience: "Experiencia",
                         practice: "Prácticas",
-                        skills: "Habilidades",
                         contact: "Contacto"
                     },
                     about: {
@@ -97,7 +95,7 @@ i18n
                     hero: {
                         greeting: "¡BIENVENIDOS!",
                         name: "Soy Osvaldo Maximiliano Benitez Lezcano",
-                        role: "Support QA & Desarrollador Web",
+                        role: "Soporte QA & Desarrollador Web",
                         skill: "Habilidades",
                         skills: {
                             methodical: "Metódico",

@@ -5,8 +5,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutMe from './components/AboutMe';
 import Practice from './components/Practice';
-import Footer from "./components/Footer";
-import theme from "./components/theme";
+import Footer from './components/Footer';
+import theme from './components/theme';
 import Experience from './components/Experience';
 
 const App = () => {
@@ -24,8 +24,8 @@ const App = () => {
     return (
         <ThemeProvider theme={themeConfig}>
             <CssBaseline />
-            <Router>
-                {}
+            {}
+            <Router basename="/portfolio">
                 <Header 
                     theme={themeConfig} 
                     toggleTheme={toggleTheme} 
@@ -37,10 +37,9 @@ const App = () => {
                     <Route path="/" element={
                         <>
                             <Hero />
-                            {}
                             <AboutMe ref={aboutMeRef} />
                             <Experience ref={experienceRef} />
-                            <Practice ref={practiceRef} /> {}
+                            <Practice ref={practiceRef} />
                         </>
                     } />
                 </Routes>

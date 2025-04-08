@@ -12,9 +12,9 @@ const Hero = () => {
     const { t, i18n } = useTranslation();
 
     const handleDownloadCV = () => {
-        const cvFile = i18n.language === 'es' ? '/cv-es.pdf' : '/cv-en.pdf';
+        const cvFile = process.env.PUBLIC_URL + (i18n.language === 'es' ? '/cv-es.pdf' : '/cv-en.pdf');
         window.open(cvFile, '_blank');
-    };
+    };    
 
     return (
         <Box
@@ -46,7 +46,7 @@ const Hero = () => {
                 {/* Título y Nombre */}
                 <Typography 
                     variant="h4" 
-                    sx={{ marginBottom: 2, color: 'text.primary}}' }}
+                    sx={{ marginBottom: 2, color: 'text.primary' }}
                 >
                     {t('hero.greeting')}
                 </Typography>
@@ -71,6 +71,7 @@ const Hero = () => {
                         src={AvatarImage} 
                         alt="Avatar" 
                         style={{ width: '160px', height: '150px', borderRadius: '50%' }} 
+                        loading="lazy"
                     />
                 </Box>
 
@@ -99,6 +100,7 @@ const Hero = () => {
                             src={logo} 
                             alt="Tech Logo" 
                             style={{ width: '40px', height: '40px', objectFit: 'contain' }} 
+                            loading="lazy"
                         />
                     ))}
                 </Box>

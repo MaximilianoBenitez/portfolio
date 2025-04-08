@@ -134,8 +134,9 @@ function Header({ theme, toggleTheme, aboutMeRef, experienceRef, practiceRef }) 
                     <Menu anchorEl={mobileMenuAnchorEl} open={Boolean(mobileMenuAnchorEl)} onClose={handleMobileMenuClose}>
                         <MenuItem onClick={() => { scrollToSection(aboutMeRef); handleMobileMenuClose(); }}>{t('header.about')}</MenuItem>
                         <MenuItem onClick={() => { scrollToSection(experienceRef); handleMobileMenuClose(); }}>{t('header.experience')}</MenuItem>
-                        <MenuItem onClick={() => { navigate('/projects'); handleMobileMenuClose(); }}>{t('header.projects')}</MenuItem>
-                        <MenuItem onClick={() => { navigate('/contact'); handleMobileMenuClose(); }}>{t('header.contact')}</MenuItem>
+                        <MenuItem onClick={() => { scrollToSection(practiceRef); handleMobileMenuClose(); }}>{t('header.practice')}</MenuItem>
+                        <MenuItem onClick={() => { window.open('https://www.linkedin.com/in/maximiliano-benitez-6a4974245/', '_blank'); handleMobileMenuClose(); }}>
+                        {t('header.contact')}</MenuItem>
                         <MenuItem onClick={() => changeLanguage('es')} className={classes.menuItemFlag}>
                             <FlagIcon code="ES" size={24} className={classes.flagIcon} /> Español
                         </MenuItem>

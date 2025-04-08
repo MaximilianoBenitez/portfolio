@@ -7,14 +7,14 @@ const practiceList = [
   {
     id: "todoList",
     link: "https://github.com/MaximilianoBenitez/TodoList",
-    preview: "/video1.mp4", 
-    image: "/imagen1.png",  
+    preview: `${process.env.PUBLIC_URL}/video1.mp4`,
+    image: `${process.env.PUBLIC_URL}/imagen1.png`,
   },
   {
     id: "weatherApp",
     link: "https://github.com/MaximilianoBenitez/WeatherApp",
-    preview: "/video2.mp4",
-    image: "/imagen2.png",
+    preview: `${process.env.PUBLIC_URL}/video2.mp4`,
+    image: `${process.env.PUBLIC_URL}/imagen2.png`,
   }
 ];
 
@@ -24,11 +24,11 @@ const Practice = forwardRef((props, ref) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section ref={ref} sx={{ py: 5, backgroundColor: theme.palette.background.default }}>
+    <section ref={ref} style={{ padding: '40px 0', backgroundColor: theme.palette.background.default }}>
       <Typography variant="h4" gutterBottom align="center" sx={{ color: theme.palette.primary.main, mb: 4 }}>
         {t('practice.title')}
       </Typography>
-      
+
       <Grid container spacing={4} justifyContent="center">
         {practiceList.map((practice, index) => (
           <Grid item xs={12} sm={6} key={practice.id}>
@@ -57,16 +57,22 @@ const Practice = forwardRef((props, ref) => {
                   autoPlay
                   loop
                   muted
-                  src={practice.preview} 
-                />
+                  playsInline
+                  preload="none"
+                  poster={practice.image}
+                >
+                  <source src={practice.preview.replace('.mp4', '.webm')} type="video/webm" />
+                  <source src={practice.preview} type="video/mp4" />
+                </CardMedia>
               ) : (
-                <CardMedia
-                  component="img"
-                  height="350"
-                  sx={{ height: 350, objectFit: "cover" }}
-                  image={practice.image}
-                  alt={t(`practice.${practice.id}.title`)}
-                />
+                <CardMedia sx={{ height: 350, objectFit: "cover" }}>
+                  <img
+                    src={practice.image}
+                    alt={t(`practice.${practice.id}.title`)}
+                    loading="lazy"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </CardMedia>
               )}
 
               <CardContent sx={{ flexGrow: 1, textAlign: "center" }}>
